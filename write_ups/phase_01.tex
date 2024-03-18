@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath} % Required for some math elements
+\usepackage{amssymb} % Required for some math elements
+\usepackage{amsthm} % Required for some math elements
+\usepackage{graphicx} % Required for inserting images
+
+
+\title{ME 793 - Phase 01}
+\author{Tamzeed Elahi Toha}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{system Dynamics} 
+
+\begin{align*}
+    \dot{x} &= Ax + Bu \\
+    y &= Cx + Du
+\end{align*}
+
+dynamic equation:
+\begin{align*}
+    \ddot{x} &= -\frac{1}{m} u_1(t) \sin{\theta} \\
+    \ddot{z} &= \frac{1}{m} u_1(t) \cos{\theta} - g \\
+    \ddot{\theta} &= \frac{1}{I_{xx}}u_2(t)
+\end{align*}
+
+state matrix:
+\begin{align*}
+    x = \begin{bmatrix}
+        x \\
+        \dot{x} \\
+        z \\
+        \dot{z} \\
+        \theta \\
+        \dot{\theta}
+    \end{bmatrix}
+\end{align*}
+
+matrices:
+\begin{align*}
+    A &= \begin{bmatrix}
+        0 & 1 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0
+    \end{bmatrix} \\
+    B &= \begin{bmatrix}
+        0 & 0 \\
+        - \frac{1}{m} \sin{\theta} & 0 \\
+        0 & 0 \\
+        \frac{1}{m} \cos{\theta} & 0 \\
+        0 & 0 \\
+        0 & \frac{1}{I_{xx}}
+    \end{bmatrix} \\
+\end{align*}
+
+
+\section*{static unknown coefficient of input matrix}
+Lets imagine that the coefficient of input matrix is unknown. So, we break down the input matrix into two parts. One part is known and the other part is unknown.
+
+\begin{align*}
+    B_{n \times m} &= B^{0}_{n \times k} B^{1}_{k \times m} \\ 
+    \text{so,}  \\
+    \dot{x} &= Ax + B^{0} B^{1} u \\
+    &= Ax + B^{0} u_{B} \\
+    y &= Cx 
+\end{align*}
+where $B^{0}$ is unknown and $B^{1}$ is known. $B^{0}$ is a diagonal matrix (for now we assume that). $C$ and $D$ are identity matrix.
+
+
+
+\end{document}
