@@ -2,10 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -21,10 +24,18 @@
 \citation{K2019}
 \citation{Schreier2012}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:01}{{1a}{1}{Quadrotor system \cite {model_diagram}}{figure.caption.5}{}}
-\newlabel{sub@fig:01}{{a}{1}{Quadrotor system \cite {model_diagram}}{figure.caption.5}{}}
-\newlabel{fig:02}{{1b}{1}{Free body diagram \cite {model_diagram}}{figure.caption.5}{}}
-\newlabel{sub@fig:02}{{b}{1}{Free body diagram \cite {model_diagram}}{figure.caption.5}{}}
+\newlabel{fig:01}{{1a}{1}{Quadrotor system \cite {model_diagram}\relax }{figure.caption.5}{}}
+\newlabel{sub@fig:01}{{a}{1}{Quadrotor system \cite {model_diagram}\relax }{figure.caption.5}{}}
+\newlabel{fig:02}{{1b}{1}{Free body diagram \cite {model_diagram}\relax }{figure.caption.5}{}}
+\newlabel{sub@fig:02}{{b}{1}{Free body diagram \cite {model_diagram}\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Measurement plot\relax }}{5}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:03}{{2}{5}{Measurement plot\relax }{figure.caption.10}{}}
 \bibstyle{plain}
 \bibdata{phase0}
-\gdef \@abspage@last{4}
+\bibcite{K2019}{1}
+\bibcite{Nemati2014}{2}
+\bibcite{model_diagram}{3}
+\bibcite{Schreier2012}{4}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces State estimation\relax }}{6}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:04}{{3}{6}{State estimation\relax }{figure.caption.11}{}}
+\gdef \@abspage@last{6}

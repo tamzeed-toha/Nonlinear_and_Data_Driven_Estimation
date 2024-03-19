@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{xcolor}
 
 
 \usepackage{subcaption}
@@ -15,6 +16,8 @@
 
 \begin{document}
 \maketitle
+
+Most recent version of this document can be found at \url{
 
 \section*{Project Description}
 The problem I am interested for the class project is a system identification problem for a 2D quadrotor system. In the context of this course, the observability of this system will be evaluated; especially for estimating the input matrix which is unknown. 
@@ -58,7 +61,7 @@ The state space model of a quadrotor system can be found in various literature\c
     \ddot{\phi} &= \frac{1}{I_{xx}}u_2(t) \\
 \end{align*}
 I assumed only two inputs (force and torque) are present in the system. Their relation with the states are nonlinear though it can be linearized with $\phi \approx 0$. It would be more interesting if the inputs are not forces and torques but rotor speeds. \\\\
-States are: $x = [y, z, \dot{y}, \dot{z}, \phi, \dot{\phi}]^T$ \\\\
+States are: $x = [\dot{\theta}, \theta, \dot{x}, x, \dot{z}, z]^T$ \\
 For now the output matrix-$C$ is considered to be an identity matrix. So, the system assumed to have a GPS and IMU sensors for full state estimation.
 
 inputs are:
@@ -78,19 +81,58 @@ matrices in continuous form:
     \end{bmatrix} \\
     B &= \begin{bmatrix}
         0 & 0 \\
+        0 & \frac{1}{I_{xx}} \\
+        0 & 0 \\
         - \frac{1}{m} \sin{\theta} & 0 \\
         0 & 0 \\
         \frac{1}{m} \cos{\theta} & 0 \\
-        0 & 0 \\
-        0 & \frac{1}{I_{xx}}
     \end{bmatrix} \\
 \end{align*}
 
 \section*{Results:}
 
 \subsection*{Linear case:}
+The nonlinearity of this system is due to the input matrix. The input matrix is a function of the states. So, the system is nonlinear. If we consider the unknown parameters of input matrix as a part of the state, then our new A matrix would be:
 
-Lets imagine that the coefficient of input matrix is unknown. So, we break down the input matrix into two parts. One part is known and the other part is unknown.
+\begin{align*}
+    \dot{x} &= \begin{bmatrix}
+        0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    \end{bmatrix} \begin{bmatrix}
+        \dot{\theta} \\
+        \theta \\
+        \dot{x} \\
+        x \\
+        \dot{z} \\
+        z \\
+        \beta_1 \\
+        \beta_2 \\
+        \beta_3 \\
+    \end{bmatrix} + \begin{bmatrix}
+        0 & 0 \\
+        0 & \frac{1}{I_{xx}} \\
+        0 & 0 \\
+        - \frac{1}{m} \sin{\theta} & 0 \\
+        0 & 0 \\
+        \frac{1}{m} \cos{\theta} & 0 \\
+        0 & 0 \\
+        0 & 0 \\
+        0 & 0 \\
+    \end{bmatrix} \begin{bmatrix}
+        F \\
+        \tau \\
+    \end{bmatrix} 
+\end{align*}
+
+Our first task would be to estimate the unknown parameters of the input matrix knowing input matrix using an estimator (Kalman filter). As the A matrix is already linear, we have to discretize it first and then apply the Kalman filter. For our problem, lets break down the input matrix into two parts. One part is known and the other part is unknown.
+
 
 \begin{align*}
     B_{n \times m} &= B^{0}_{n \times k} B^{1}_{k \times m} \\ 
@@ -99,133 +141,91 @@ Lets imagine that the coefficient of input matrix is unknown. So, we break down 
     &= Ax + B^{0} u_{B} \\
     y &= Cx 
 \end{align*}
-where $B^{0}$ is unknown and $B^{1}$ is known. $B^{0}$ is a diagonal matrix (for now we assume that). $C$ and $D$ are identity matrix.
-
+where $B^{0}$ is unknown and $B^{1}$ is known. Here, $B^{0}$ is a row vector but it can be a matrix if the inputs are not linearly independent.
 
 Contiuous form of the system:
 \begin{align*}
-    \begin{bmatrix}
-        \dot{y} \\
-        \dot{z} \\
-        \ddot{y} \\
-        \ddot{z} \\
-        \dot{\phi} \\
-        \ddot{\phi} \\
-        \dot{\beta_1} \\
-        \dot{\beta_2} \\
-        \dot{\beta_3} \\
-    \end{bmatrix} &=
-    \begin{bmatrix}
-        0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+    \dot{x} &= Ax + B^{0} u_{B} \\
+    &= \begin{bmatrix}
+        0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        y \\
-        z \\
-        \dot{y} \\
+    \end{bmatrix} \begin{bmatrix}
+        \dot{\theta} \\
+        \theta \\
+        \dot{x} \\
+        x \\
         \dot{z} \\
-        \phi \\
-        \dot{\phi} \\
+        z \\
         \beta_1 \\
         \beta_2 \\
         \beta_3 \\
-    \end{bmatrix} +
-    \begin{bmatrix}
-        0 & 0 \\
-        \beta_1 & 0 \\
-        0 & 0 \\
-        \beta_2 & 0 \\
-        0 & 0 \\
-        0 & \beta_3 \\
-        0 & 0 \\
-        0 & 0 \\
-        0 & 0 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        F \\
-        \tau \\
-    \end{bmatrix} + w\\ \\
-    &= 
-    \begin{bmatrix}
-        0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        y \\
-        z \\
-        \dot{y} \\
-        \dot{z} \\
-        \phi \\
-        \dot{\phi} \\
-        \beta_1 \\
-        \beta_2 \\
-        \beta_3 \\
-    \end{bmatrix} +
-    \lambda^T 
-    \begin{bmatrix}
-        0 & 0 \\
-        \beta_1 & 0 \\
-        0 & 0 \\
-        \beta_2 & 0 \\
-        0 & 0 \\
-        0 & \beta_3 \\
-        0 & 0 \\
-        0 & 0 \\
-        0 & 0 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        F \\
-        \tau \\
-    \end{bmatrix} + w\\
+    \end{bmatrix} + \begin{bmatrix}
+        0 \\ \frac{1}{I_{xx}} \\ 0 \\ -\frac{1}{m} \\ 0 \\ \frac{1}{m} \\  0 \\ 0 \\ 0
+        \end{bmatrix}^{T} \begin{bmatrix}
+            0 & 0 \\
+            0 & 1 \\
+            0 & 0 \\
+            \sin{\theta} & 0 \\
+            0 & 0 \\
+            \cos{\theta} & 0 \\
+            0 & 0 \\
+            0 & 0 \\
+            0 & 0 \\
+        \end{bmatrix} \begin{bmatrix}
+            F \\
+            \tau \\
+        \end{bmatrix}
 \end{align*}
-
-here $\lambda^T$ is the unknown input matrix. \\\\
-if the inputs are not linearly independent, then $\Lambda$ would be a matrix.
-
-$$\dot{x} = Ax + \Lambda B u + w$$
-
-now the measurement equation would be:
+We know, the continuous form of the system can be discretized using the following equation:
 \begin{align*}
-    y &= Cx + v \\
-    &= 
-    \begin{bmatrix}
-        1 & 0 & 0 & 0 & 0 & 0 & 0  & 0 & 0  \\
-        0 & 1 & 0 & 0 & 0 & 0 & 0  & 0 & 0  \\
-        0 & 0 & 1 & 0 & 0 & 0 & 0  & 0 & 0  \\
-        0 & 0 & 0 & 1 & 0 & 0 & 0  & 0 & 0  \\
-        0 & 0 & 0 & 0 & 1 & 0 & 0  & 0 & 0  \\
-        0 & 0 & 0 & 0 & 0 & 1 & 0  & 0 & 0  \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        y \\
-        z \\
-        \dot{y} \\
-        \dot{z} \\
-        \phi \\
-        \dot{\phi} \\
-        \beta_1 \\
-        \beta_2 \\
-        \beta_3 \\
-    \end{bmatrix} + v
+    A_d &= e^{A \Delta t}  = \phi(\Delta t) \\
+    B_d &= (A_d - I) A^{-1} B \\
+    C_d &= C
+\end{align*}
+In this case, A matrix is singular so we can't use the above equation. We can use the following equation to discretize the system:
+\begin{align*}
+    A_d &= I + A \Delta t + \frac{A^2 \Delta t^2}{2} + \frac{A^3 \Delta t^3}{6} + \ldots \\
+    B_d &= \int_{0}^{\Delta t} e^{A \tau} d\tau B \\
+    C_d &= C
+\end{align*}
+The discretized form of the system is:
+\begin{align*}
+    A_d &= \begin{bmatrix}
+        1 & \Delta t & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & \Delta t & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 & \Delta t & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+    \end{bmatrix} \\
 \end{align*}
 
-In the above equation, we can see the parameters dont really have any direct or indirect measurement. So, the system is not observable and also not controllable. Lets add some more sensors to the system. 
 
-\section*{Observability}
+\color{red}
+Estimation of $B_d$ matrix is a bit tricky because of the singularity of the A matrix. I have estimated the B matrix in two methods:
+\begin{enumerate}
+    \item Using pseudo-inverse (Moore-Penrose inverse) I got a zero matrix.
+    \item Using the integral equation, I got a non-zero matrix. For $\Delta t = 0.1$, the B matrix is: $B_d = \begin{bmatrix}   6.25e-01 \\  1.25e+01 \\ -1.00e-02 \\ -2.00e-01 \\ 1.00e-02 \\ 2.00e-01 \\
+        0.00e+00 \\  0.00e+00 \\  0.00e+00 \end{bmatrix}$
+\end{enumerate}
+
+\color{black}
+
+
+
+Now, we divert our attention to the measurement matrix of the system. The observability of the system is dependent on the measurement matrix. We have to design the measurement matrix in such a way that the system is observable. 
+
+\subsubsection*{Observability}
 The observability of the system can be evaluated using the observability matrix. The system is observable if the rank of the observability matrix is equal to the number of states. The observability matrix is given by:
 \begin{align*}
     O = \begin{bmatrix}
@@ -237,9 +237,29 @@ The observability of the system can be evaluated using the observability matrix.
     \end{bmatrix}
 \end{align*}
 
+\subsection*{Designing a measurement matrix}
+Let's consider the measurement matrix as an identity matrix. 
+\begin{align*}
+    C &= I
+\end{align*}
+This makes the system observable (rank = 9). We can get by with lower number of sensors. But, as the beta values don't really have a dynamics, they need direct measurement for estimation. At least for the linear case.
 
+The measurement plot is given below:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=10cm]{figures/phase_02_measurement1.png}
+    \caption{Measurement plot}
+    \label{fig:03}
+\end{figure}
+The estimator was able to estimate the states and the unknown parameters of the input matrix. The plot of the estimated states and the true states are given below:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=10cm]{figures/phase_02_states1.png}
+    \caption{State estimation}
+    \label{fig:04}
+\end{figure}
 
-
+\section*{Conclusion}
 
 \pagebreak
 \bibliographystyle{plain}

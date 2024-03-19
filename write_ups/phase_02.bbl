@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{K2019}
+Rahul~Vigneswaran K and Soman KP.
+\newblock {An Insight into the Dynamics and State Space Modelling of a 3-D
+  Quadrotor}.
+\newblock jan 2019.
+
+\bibitem{Nemati2014}
+A.~Nemati and M.~Kumar.
+\newblock {Modeling and control of a single axis tilting quadcopter}.
+\newblock In {\em 2014 American Control Conference}, pages 3077--3082. IEEE,
+  jun 2014.
+
+\bibitem{model_diagram}
+Cookie Robotics.
+\newblock {2D Quadrotor}.
+
+\bibitem{Schreier2012}
+Matthias Schreier.
+\newblock {Modeling and adaptive control of a quadrotor}.
+\newblock In {\em 2012 IEEE International Conference on Mechatronics and
+  Automation}, pages 383--390. IEEE, aug 2012.
+
+\end{thebibliography}
