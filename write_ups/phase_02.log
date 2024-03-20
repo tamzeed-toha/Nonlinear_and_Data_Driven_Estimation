@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  19 MAR 2024 02:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  19 MAR 2024 02:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,6 +299,8 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
+\tindent=\skip56
+
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
 
@@ -331,24 +333,24 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 (./phase_02.aux)
 \openout1 = `phase_02.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -406,7 +408,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 17.
+Package hyperref Info: Link coloring OFF on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -419,9 +421,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count295
 )
-LaTeX Info: Redefining \ref on input line 17.
-LaTeX Info: Redefining \pageref on input line 17.
-LaTeX Info: Redefining \nameref on input line 17.
+LaTeX Info: Redefining \ref on input line 21.
+LaTeX Info: Redefining \pageref on input line 21.
+LaTeX Info: Redefining \nameref on input line 21.
 
 (./phase_02.out) (./phase_02.out)
 \@outlinefile=\write3
@@ -429,88 +431,66 @@ LaTeX Info: Redefining \nameref on input line 17.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: Citation `Nemati2014' on page 1 undefined on input line 27.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--28
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
 
  []
 
-<figures/model_diagram.png, id=4, 222.07968pt x 135.50626pt>
+<figures/model_diagram.png, id=7, 222.07968pt x 135.50626pt>
 File: figures/model_diagram.png Graphic file (type png)
 <use figures/model_diagram.png>
-Package pdftex.def Info: figures/model_diagram.png  used on input line 41.
+Package pdftex.def Info: figures/model_diagram.png  used on input line 49.
 (pdftex.def)             Requested size: 142.26378pt x 86.80432pt.
-
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 42.
-
-
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 42.
-
-<figures/free_body_diagram.png, id=6, 137.01187pt x 121.20282pt>
+<figures/free_body_diagram.png, id=11, 137.01187pt x 121.20282pt>
 File: figures/free_body_diagram.png Graphic file (type png)
 <use figures/free_body_diagram.png>
-Package pdftex.def Info: figures/free_body_diagram.png  used on input line 48.
+Package pdftex.def Info: figures/free_body_diagram.png  used on input line 56.
 (pdftex.def)             Requested size: 142.26378pt x 125.8593pt.
 
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 49.
-
-
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 49.
-
-
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 39--52
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 47--60
 [][]  [] 
  []
 
 
-LaTeX Warning: Citation `K2019' on page 1 undefined on input line 55.
-
-
-LaTeX Warning: Citation `Schreier2012' on page 1 undefined on input line 55.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/model_diagram.pn
-g> <./figures/free_body_diagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 60--64
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 68--72
 
  []
 
-[2] [3] [4]
-<figures/phase_02_measurement1.png, id=47, 1226.4219pt x 616.4631pt>
+[2 <./figures/model_diagram.png> <./figures/free_body_diagram.png>] [3]
+[4] [5]
+<figures/phase_02_measurement1.png, id=62, 1226.4219pt x 616.4631pt>
 File: figures/phase_02_measurement1.png Graphic file (type png)
 <use figures/phase_02_measurement1.png>
 Package pdftex.def Info: figures/phase_02_measurement1.png  used on input line 
-248.
+257.
 (pdftex.def)             Requested size: 284.52756pt x 143.01578pt.
-<figures/phase_02_states1.png, id=48, 1418.6601pt x 697.4055pt>
+<figures/phase_02_states1.png, id=63, 1418.6601pt x 697.4055pt>
 File: figures/phase_02_states1.png Graphic file (type png)
 <use figures/phase_02_states1.png>
-Package pdftex.def Info: figures/phase_02_states1.png  used on input line 255.
+Package pdftex.def Info: figures/phase_02_states1.png  used on input line 264.
 (pdftex.def)             Requested size: 284.52756pt x 139.86172pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./figures/phase_02_measurement1.png>] (./phase_02.bbl) [6 <./figures/phase_
+[6 <./figures/phase_02_measurement1.png>] (./phase_02.bbl) [7 <./figures/phase_
 02_states1.png>] (./phase_02.aux)
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -518,29 +498,29 @@ Package rerunfilecheck Info: File `phase_02.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11721 strings out of 480129
+ 11722 strings out of 480129
  185032 string characters out of 5893409
- 510967 words of memory out of 5000000
+ 510081 words of memory out of 5000000
  29513 multiletter control sequences out of 15000+600000
- 478977 words of font info for 65 fonts, out of 8000000 for 9000
+ 478669 words of font info for 64 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 67i,15n,77p,386b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on phase_02.pdf (6 pages, 571933 bytes).
+ 67i,15n,77p,386b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+>
+Output written on phase_02.pdf (7 pages, 563208 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
- 25 named destinations out of 1000 (max. 500000)
+ 140 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

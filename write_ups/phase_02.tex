@@ -4,6 +4,10 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\newlength\tindent
+\setlength{\parindent}{0pt}
+\setlength{\tindent}{\parindent}
+\renewcommand{\indent}{\hspace*{\tindent}}
 
 
 \usepackage{subcaption}
@@ -17,7 +21,9 @@
 \begin{document}
 \maketitle
 
-Most recent version of this document can be found at \url{
+Most recent version of this document can be found \href{https://github.com/tamzeed-toha/Nonlinear_and_Data_Driven_Estimation/blob/main/write_ups/phase_02.pdf}{\textcolor{blue}{here}}. 
+
+Code for this project can be found \href{https://github.com/tamzeed-toha/Nonlinear_and_Data_Driven_Estimation/blob/main/project/phase_02.ipynb}{\textcolor{blue}{here}}.
 
 \section*{Project Description}
 The problem I am interested for the class project is a system identification problem for a 2D quadrotor system. In the context of this course, the observability of this system will be evaluated; especially for estimating the input matrix which is unknown. 
@@ -89,6 +95,7 @@ matrices in continuous form:
     \end{bmatrix} \\
 \end{align*}
 
+\pagebreak
 \section*{Results:}
 
 \subsection*{Linear case:}
