@@ -12,7 +12,7 @@
 
 \usepackage{subcaption}
 
-\title{Phase 02}
+\title{Phase 03}
 \author{Tamzeed Elahi}
 \date{\today}
 
@@ -94,6 +94,128 @@ matrices in continuous form:
         \frac{1}{m} \cos{\theta} & 0 \\
     \end{bmatrix} \\
 \end{align*}
+
+\section*{Organized dynamic equations:}
+
+States:
+\begin{align*}
+    \vec{x} &= \begin{bmatrix}
+        \colorbox{yellow}{$\dot{\theta}$} \\
+        \colorbox{yellow}{$\theta$} \\
+        \colorbox{yellow}{$\dot{x}$} \\
+        \colorbox{yellow}{$x$} \\
+        \colorbox{yellow}{$\dot{z}$} \\
+        \colorbox{yellow}{$z$} \\
+        \hline
+        \colorbox{pink}{$\beta_1$} \\
+        \colorbox{pink}{$\beta_2$} \\
+        \colorbox{pink}{$\beta_3$} \\
+    \end{bmatrix}
+\end{align*}
+
+Dynamic equations:
+\begin{align*}
+    \dot{\vec{x}} &= \begin{bmatrix}
+        \colorbox{pink}{$\beta_1$} \colorbox{lime}{$u_2$} \\
+        \colorbox{yellow}{$\dot{\theta}$} \\
+        \colorbox{pink}{$\beta_2$} \colorbox{lime}{$u_1$} \sin{\colorbox{yellow}{$\theta$}} \\ 
+        \colorbox{yellow}{$\dot{x}$} \\
+        -\colorbox{cyan}{g}+\colorbox{pink}{$\beta_3$} \colorbox{lime}{$u_1$} \cos{\colorbox{yellow}{$\theta$}} \\
+        \colorbox{yellow}{$\dot{z}$} \\
+        \hline
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+            0 \\
+            \colorbox{yellow}{$\dot{\theta}$} \\
+            0 \\
+            \colorbox{yellow}{$\dot{x}$} \\
+            0 \\
+            \colorbox{yellow}{$\dot{z}$} \\
+            \hline
+            0 \\
+            0 \\
+            0 \\
+        \end{bmatrix} +  \begin{bmatrix}
+            0 \\
+            0 \\
+            \colorbox{pink}{$\beta_2$} \sin{\colorbox{yellow}{$\theta$}} \\
+            0 \\
+            \colorbox{pink}{$\beta_3$} \cos{\colorbox{yellow}{$\theta$}} \\
+            0 \\
+            \hline
+            0 \\
+            0 \\
+            0 \\
+        \end{bmatrix} \colorbox{lime}{$u_1$} +  \begin{bmatrix}
+            \colorbox{pink}{$\beta_1$} \\
+            0 \\
+            0 \\
+            0 \\
+            0 \\
+            0 \\    
+            \hline        
+            0 \\
+            0 \\
+            0 \\
+        \end{bmatrix} \colorbox{lime}{$u_2$} \\
+    &= \begin{bmatrix}
+        0 \\
+        \colorbox{yellow}{$\dot{\theta}$} \\
+        0 \\
+        \colorbox{yellow}{$\dot{x}$} \\
+        0 \\
+        \colorbox{yellow}{$\dot{z}$} \\
+        \hline
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix} +  \begin{bmatrix}
+        0 \\
+        0 \\
+        \colorbox{pink}{$\beta_2$} \\
+        0 \\
+        \colorbox{pink}{$\beta_3$} \\
+        0 \\
+        \hline
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix} \colorbox{lime}{$\tilde{u}_1$} + \begin{bmatrix}
+        \colorbox{pink}{$\beta_1$} \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\ 
+        \hline
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix} \colorbox{lime}{$u_2$} 
+\end{align*}
+
+where, 
+\begin{align*}
+    \tilde{u}_1 &= \begin{bmatrix}
+        0 \\
+        0 \\
+        \sin{\colorbox{yellow}{$\theta$}} \\
+        0 \\
+        \cos{\colorbox{yellow}{$\theta$}} \\
+        0 \\
+        \hline
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix} u_1
+\end{align*}
+
+known constants: \colorbox{cyan}{$g$} = 9.81 $m/s^2$ \\
+
+Measurement matrix: I do not have any non-linearity in the measurement matrix. It is currently assumed to be an identity matrix. I can certainly get by with fewer sensors but the beta values need direct measurement as of now.
 
 \pagebreak
 \section*{Results:}
