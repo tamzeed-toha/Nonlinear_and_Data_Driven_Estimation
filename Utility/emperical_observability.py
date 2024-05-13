@@ -20,7 +20,7 @@ def empirical_observability_matrix(system, x0, tsim, eps=1e-4, args=None):
     """
 
     # Simulate once for nominal trajectory
-    X, Y = system.simulate(x0, tsim, *args)
+    X, Y, U = system.simulate(x0, tsim, *args)
     n_state = X.shape[0]  # number of states
     n_output = Y.shape[0]  # number of outputs
 
@@ -34,8 +34,8 @@ def empirical_observability_matrix(system, x0, tsim, eps=1e-4, args=None):
         x0minus = x0 - delta[:, k]
 
         # Simulate measurements from perturbed initial conditions
-        _, yplus = system.simulate(x0plus, tsim, *args)
-        _, yminus = system.simulate(x0minus, tsim, *args)
+        _, yplus, _ = system.simulate(x0plus, tsim, *args)
+        _, yminus, _ = system.simulate(x0minus, tsim, *args)
 
         # Calculate the numerical Jacobian & normalize by 2x the perturbation amount
         deltay[:, k, :] = np.array(yplus - yminus) / (2 * eps)
@@ -47,4 +47,4 @@ def empirical_observability_matrix(system, x0, tsim, eps=1e-4, args=None):
 
     O = np.vstack(O)
 
-    return O, X, deltay
+    return {'bigO': O, 'X': X, 'deltay': deltay, 'Y': Y, 'U': U}

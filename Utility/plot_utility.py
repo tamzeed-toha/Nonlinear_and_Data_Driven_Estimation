@@ -10,7 +10,7 @@ def plot_tme(t, true, measured, estimated=None, ax=None, label_var='y'):
         ax = fig.add_subplot(111)
 
     if measured is not None:
-        ax.plot(t, measured, '*', color='blue', label=label_var + ' measured', markersize=0.5)
+        ax.plot(t, measured, '*', color='blue', label=label_var + ' measured', markersize=5)
         
     if estimated is not None:
         ax.plot(t, estimated, color='red', label=label_var + ' hat')
