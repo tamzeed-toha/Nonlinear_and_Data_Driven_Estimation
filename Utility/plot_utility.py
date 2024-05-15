@@ -19,7 +19,7 @@ def plot_tme(t, true, measured, estimated=None, ax=None, label_var='y', desired=
         ax.plot(t, true, '--', color='black', label=label_var + ' true')
         
     if desired is not None:
-        ax.plot(t, desired, '-.', color='green', label=label_var + ' desired')
+        ax.plot(t, desired, '-.', color='green', label=label_var + ' desired', zorder=-1)
 
     ax.set_xlabel('Time')
     ax.set_ylabel(label_var)
