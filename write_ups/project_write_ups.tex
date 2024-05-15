@@ -283,58 +283,126 @@ States:
         \hline
         \colorbox{pink}{$\beta_1$} \\
         \colorbox{pink}{$\beta_2$} \\
-        \colorbox{pink}{$\beta_3$} \\
+        % \colorbox{pink}{$\beta_3$} \\
     \end{bmatrix}
 \end{align*}
 
 Dynamic equations:
 \begin{align*}
     \dot{\vec{x}} &= \begin{bmatrix}
-        \colorbox{pink}{$\beta_1$} \colorbox{lime}{$u_2$} \\
-        \colorbox{yellow}{$\dot{\theta}$} \\
-        \colorbox{pink}{$\beta_2$} \colorbox{lime}{$u_1$} \sin{\colorbox{yellow}{$\theta$}} \\ 
-        \colorbox{yellow}{$\dot{x}$} \\
-        -\colorbox{cyan}{g}+\colorbox{pink}{$\beta_3$} \colorbox{lime}{$u_1$} \cos{\colorbox{yellow}{$\theta$}} \\
-        \colorbox{yellow}{$\dot{z}$} \\
+        \colorbox{yellow}{$\dot{x_1}$} \\
+        \colorbox{yellow}{$\dot{x_2}$} \\
+        \colorbox{yellow}{$\dot{x_3}$} \\
+        \colorbox{yellow}{$\dot{x_4}$} \\
+        \colorbox{yellow}{$\dot{x_5}$} \\
+        \colorbox{yellow}{$\dot{x_6}$} \\
+        \hline
+        \colorbox{pink}{$\dot{x_7}$} \\
+        \colorbox{pink}{$\dot{x_8}$} \\
+        % \colorbox{pink}{$\dot{x_9}$} \\
+    \end{bmatrix} = \begin{bmatrix}
+        1/I_{xx} \colorbox{green}{$u_2$} \\ 
+        \colorbox{yellow}{$x_1$} \\
+        1/m \colorbox{green}{$u_1$} \sin{\colorbox{yellow}{$x_2$}} \\
+        \colorbox{yellow}{$x_3$} \\
+        -g + 1/m \colorbox{green}{$u_1$} \cos{\colorbox{yellow}{$x_2$}} \\
+        \colorbox{yellow}{$x_6$} \\
         \hline
         0 \\
         0 \\
+        % 0 \\
+    \end{bmatrix} = \begin{bmatrix}
+        \colorbox{pink}{$x_7$} \colorbox{green}{$u_2$} \\
+        \colorbox{yellow}{$x_1$} \\
+        \colorbox{pink}{$x_8$} \colorbox{green}{$u_1$} \sin{\colorbox{yellow}{$x_2$}} \\
+        \colorbox{yellow}{$x_3$} \\
+        -\colorbox{cyan}{g} + \colorbox{pink}{$x_8$} \colorbox{green}{$u_1$} \cos{\colorbox{yellow}{$x_2$}} \\
+        \colorbox{yellow}{$x_6$} \\
+        \hline
         0 \\
+        0 \\
+        % 0 \\
     \end{bmatrix} \\
     &= \begin{bmatrix}
-            0 \\
-            \colorbox{yellow}{$\dot{\theta}$} \\
-            0 \\
-            \colorbox{yellow}{$\dot{x}$} \\
-            -\colorbox{cyan}{g} \\
-            \colorbox{yellow}{$\dot{z}$} \\
-            \hline
-            0 \\
-            0 \\
-            0 \\
-        \end{bmatrix} +  \begin{bmatrix}
-            0 \\
-            0 \\
-            \colorbox{pink}{$\beta_2$} \sin{\colorbox{yellow}{$\theta$}} \\
-            0 \\
-            \colorbox{pink}{$\beta_3$} \cos{\colorbox{yellow}{$\theta$}} \\
-            0 \\
-            \hline
-            0 \\
-            0 \\
-            0 \\
-        \end{bmatrix} \colorbox{lime}{$u_1$} +  \begin{bmatrix}
-            \colorbox{pink}{$\beta_1$} \\
-            0 \\
-            0 \\
-            0 \\
-            0 \\
-            0 \\    
-            \hline        
-            0 \\
-            0 \\
-            0 \\
-        \end{bmatrix} \colorbox{lime}{$u_2$} \\
+        0 \\
+        \colorbox{yellow}{$x_1$} \\
+        0 \\
+        \colorbox{yellow}{$x_3$} \\
+        -\colorbox{cyan}{g} \\
+        \colorbox{yellow}{$x_6$} \\
+        \hline
+        0 \\
+        0 \\
+        % 0 \\
+        \end{bmatrix} + \begin{bmatrix}
+        0 \\
+        0 \\
+        \colorbox{pink}{$x_8$} \sin{\colorbox{yellow}{$x_2$}} \\
+        0 \\
+        \colorbox{pink}{$x_8$} \cos{\colorbox{yellow}{$x_2$}} \\
+        0 \\
+        \hline
+        0 \\
+        0 \\
+        % 0 \\
+    \end{bmatrix} \colorbox{green}{$u_1$} + \begin{bmatrix}
+        \colorbox{pink}{$x_7$} \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        \hline
+        0 \\
+        0 \\
+        % 0 \\
+    \end{bmatrix} \colorbox{green}{$u_2$} \\    
+    % \dot{\vec{x}} &= \begin{bmatrix}
+    %     \colorbox{pink}{$\beta_1$} \colorbox{lime}{$u_2$} \\
+    %     \colorbox{yellow}{$\dot{\theta}$} \\
+    %     \colorbox{pink}{$\beta_2$} \colorbox{lime}{$u_1$} \sin{\colorbox{yellow}{$\theta$}} \\ 
+    %     \colorbox{yellow}{$\dot{x}$} \\
+    %     -\colorbox{cyan}{g}+\colorbox{pink}{$\beta_3$} \colorbox{lime}{$u_1$} \cos{\colorbox{yellow}{$\theta$}} \\
+    %     \colorbox{yellow}{$\dot{z}$} \\
+    %     \hline
+    %     0 \\
+    %     0 \\
+    %     0 \\
+    % \end{bmatrix} \\
+    % &= \begin{bmatrix}
+    %         0 \\
+    %         \colorbox{yellow}{$\dot{\theta}$} \\
+    %         0 \\
+    %         \colorbox{yellow}{$\dot{x}$} \\
+    %         -\colorbox{cyan}{g} \\
+    %         \colorbox{yellow}{$\dot{z}$} \\
+    %         \hline
+    %         0 \\
+    %         0 \\
+    %         % 0 \\
+    %     \end{bmatrix} +  \begin{bmatrix}
+    %         0 \\
+    %         0 \\
+    %         \colorbox{pink}{$\beta_2$} \sin{\colorbox{yellow}{$\theta$}} \\
+    %         0 \\
+    %         \colorbox{pink}{$\beta_3$} \cos{\colorbox{yellow}{$\theta$}} \\
+    %         0 \\
+    %         \hline
+    %         0 \\
+    %         0 \\
+    %         % 0 \\
+    %     \end{bmatrix} \colorbox{lime}{$u_1$} +  \begin{bmatrix}
+    %         \colorbox{pink}{$\beta_1$} \\
+    %         0 \\
+    %         0 \\
+    %         0 \\
+    %         0 \\
+    %         0 \\    
+    %         \hline        
+    %         0 \\
+    %         0 \\
+    %         % 0 \\
+    %     \end{bmatrix} \colorbox{lime}{$u_2$} \\
     &= \begin{bmatrix}
         0 \\
         \colorbox{yellow}{$\dot{\theta}$} \\
@@ -345,20 +413,23 @@ Dynamic equations:
         \hline
         0 \\
         0 \\
-        0 \\
+        % 0 \\
     \end{bmatrix} +  \begin{bmatrix}
         0 \\
         0 \\
-        \colorbox{pink}{$\beta_2$} \\
+        % \colorbox{pink}{$\beta_2$} \\
+        \colorbox{pink}{$x_8$} \\
         0 \\
-        \colorbox{pink}{$\beta_3$} \\
+        % \colorbox{pink}{$\beta_3$} \\
+        \colorbox{pink}{$x_8$} \\
         0 \\
         \hline
         0 \\
         0 \\
-        0 \\
+        % 0 \\
     \end{bmatrix} \colorbox{lime}{$\tilde{u}_1$} + \begin{bmatrix}
-        \colorbox{pink}{$\beta_1$} \\
+        % \colorbox{pink}{$\beta_1$} \\
+        \colorbox{pink}{$x_7$} \\
         0 \\
         0 \\
         0 \\
@@ -367,7 +438,7 @@ Dynamic equations:
         \hline
         0 \\
         0 \\
-        0 \\
+        % 0 \\
     \end{bmatrix} \colorbox{lime}{$u_2$} \\
     &= f_0(\vec{x}) + f_1(\vec{x}) \tilde{u}_1 + f_2(\vec{x}) u_2
 \end{align*}
@@ -377,14 +448,16 @@ where,
     \tilde{u}_1 &= \begin{bmatrix}
         0 \\
         0 \\
-        \sin{\colorbox{yellow}{$\theta$}} \\
+        % \sin{\colorbox{yellow}{$\theta$}} \\
+        \sin{\colorbox{yellow}{$x_2$}} \\
         0 \\
-        \cos{\colorbox{yellow}{$\theta$}} \\
+        % \cos{\colorbox{yellow}{$\theta$}} \\
+        \cos{\colorbox{yellow}{$x_2$}} \\
         0 \\
         \hline
         0 \\
         0 \\
-        0 \\
+        % 0 \\
     \end{bmatrix} u_1
 \end{align*}
 

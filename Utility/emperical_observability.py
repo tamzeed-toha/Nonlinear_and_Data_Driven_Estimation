@@ -21,8 +21,8 @@ def empirical_observability_matrix(system, x0, tsim, eps=1e-4, args=None):
 
     # Simulate once for nominal trajectory
     X, Y, U = system.simulate(x0, tsim, *args)
-    n_state = X.shape[0]  # number of states
-    n_output = Y.shape[0]  # number of outputs
+    n_state = X.shape[1]  # number of states
+    n_output = Y.shape[1]  # number of outputs
 
     # Calculate O
     w = len(tsim)  # of points in time window
@@ -38,7 +38,7 @@ def empirical_observability_matrix(system, x0, tsim, eps=1e-4, args=None):
         _, yminus, _ = system.simulate(x0minus, tsim, *args)
 
         # Calculate the numerical Jacobian & normalize by 2x the perturbation amount
-        deltay[:, k, :] = np.array(yplus - yminus) / (2 * eps)
+        deltay[:, k, :] = np.array(yplus.T - yminus.T) / (2 * eps)
 
     # Construct O by stacking the 3rd dimension of deltay along the 1st dimension, O is a (p*m x n) matrix
     O = []  # list to store datat at each time point fo O

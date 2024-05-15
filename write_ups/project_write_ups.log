@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  15 APR 2024 10:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.13)  14 MAY 2024 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -512,79 +512,65 @@ Package pdftex.def Info: figures/phase_02_states1.png  used on input line 264.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5 <./figures/phase_02_measurement1.png>] [6 <./figures/phase_02_states1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
 [7]
-Overfull \hbox (15.13033pt too wide) detected at line 420
+Overfull \hbox (15.13033pt too wide) detected at line 493
 []
  []
 
 [8]
-<figures/phase_03_obswithh.png, id=75, 524.6802pt x 351.9549pt>
+<figures/phase_03_obswithh.png, id=76, 524.6802pt x 351.9549pt>
 File: figures/phase_03_obswithh.png Graphic file (type png)
 <use figures/phase_03_obswithh.png>
-Package pdftex.def Info: figures/phase_03_obswithh.png  used on input line 427.
+Package pdftex.def Info: figures/phase_03_obswithh.png  used on input line 500.
 
 (pdftex.def)             Requested size: 142.26378pt x 95.4265pt.
-<figures/phase_03_obswithtime.png, id=76, 406.1574pt x 336.7782pt>
+<figures/phase_03_obswithtime.png, id=77, 406.1574pt x 336.7782pt>
 File: figures/phase_03_obswithtime.png Graphic file (type png)
 <use figures/phase_03_obswithtime.png>
-Package pdftex.def Info: figures/phase_03_obswithtime.png  used on input line 4
-34.
+Package pdftex.def Info: figures/phase_03_obswithtime.png  used on input line 5
+07.
 (pdftex.def)             Requested size: 142.26378pt x 117.96149pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 425--438
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 498--511
 [][]  [] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/phase_03_emperical1.png, id=77, 1058.7555pt x 336.7782pt>
+<figures/phase_03_emperical1.png, id=78, 1058.7555pt x 336.7782pt>
 File: figures/phase_03_emperical1.png Graphic file (type png)
 <use figures/phase_03_emperical1.png>
-Package pdftex.def Info: figures/phase_03_emperical1.png  used on input line 44
-2.
+Package pdftex.def Info: figures/phase_03_emperical1.png  used on input line 51
+5.
 (pdftex.def)             Requested size: 284.52756pt x 90.5048pt.
-<figures/phase_03_emperical2.png, id=78, 1059.4782pt x 349.0641pt>
+<figures/phase_03_emperical2.png, id=79, 1059.4782pt x 349.0641pt>
 File: figures/phase_03_emperical2.png Graphic file (type png)
 <use figures/phase_03_emperical2.png>
-Package pdftex.def Info: figures/phase_03_emperical2.png  used on input line 44
-9.
+Package pdftex.def Info: figures/phase_03_emperical2.png  used on input line 52
+2.
 (pdftex.def)             Requested size: 284.52756pt x 93.74257pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/phase_03_outputy1.png, id=79, 936.6192pt x 338.2236pt>
+<figures/phase_03_outputy1.png, id=80, 936.6192pt x 338.2236pt>
 File: figures/phase_03_outputy1.png Graphic file (type png)
 <use figures/phase_03_outputy1.png>
-Package pdftex.def Info: figures/phase_03_outputy1.png  used on input line 460.
+Package pdftex.def Info: figures/phase_03_outputy1.png  used on input line 533.
 
 (pdftex.def)             Requested size: 284.52756pt x 102.74776pt.
-[9]
-<figures/phase_03_param1.png, id=85, 1058.0328pt x 349.0641pt>
+[9 <./figures/phase_03_obswithh.png> <./figures/phase_03_obswithtime.png> <./fi
+gures/phase_03_emperical1.png> <./figures/phase_03_emperical2.png>]
+<figures/phase_03_param1.png, id=92, 1058.0328pt x 349.0641pt>
 File: figures/phase_03_param1.png Graphic file (type png)
 <use figures/phase_03_param1.png>
-Package pdftex.def Info: figures/phase_03_param1.png  used on input line 469.
+Package pdftex.def Info: figures/phase_03_param1.png  used on input line 542.
 (pdftex.def)             Requested size: 284.52756pt x 93.87039pt.
-<figures/phase_03_param2.png, id=86, 1058.7555pt x 349.0641pt>
+<figures/phase_03_param2.png, id=93, 1058.7555pt x 349.0641pt>
 File: figures/phase_03_param2.png Graphic file (type png)
 <use figures/phase_03_param2.png>
-Package pdftex.def Info: figures/phase_03_param2.png  used on input line 476.
+Package pdftex.def Info: figures/phase_03_param2.png  used on input line 549.
 (pdftex.def)             Requested size: 284.52756pt x 93.80647pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[10 <./figures/phase_03_obswithh.png> <./figures/phase_03_obswithtime.png> <./f
-igures/phase_03_emperical1.png> <./figures/phase_03_emperical2.png> <./figures/
-phase_03_outputy1.png>] [11 <./figures/phase_03_param1.png> <./figures/phase_03
-_param2.png>] [12]
+ [10 <./figures/phase_03_outputy1.png> <./figures/phase_03_param1.png> <./figur
+es/phase_03_param2.png>] [11]
 No file project_write_ups.bbl.
 (./project_write_ups.aux)
 
@@ -594,12 +580,12 @@ Package rerunfilecheck Info: File `project_write_ups.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11785 strings out of 480129
- 186930 string characters out of 5893409
- 511715 words of memory out of 5000000
- 29562 multiletter control sequences out of 15000+600000
+ 11784 strings out of 480247
+ 186923 string characters out of 5896151
+ 516314 words of memory out of 5000000
+ 29546 multiletter control sequences out of 15000+600000
  478630 words of font info for 64 fonts, out of 8000000 for 9000
- 81 hyphenation exceptions out of 8191
+ 14 hyphenation exceptions out of 8191
  67i,18n,77p,463b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -613,10 +599,10 @@ amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on project_write_ups.pdf (12 pages, 944254 bytes).
+Output written on project_write_ups.pdf (11 pages, 945139 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
