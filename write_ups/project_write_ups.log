@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.13)  15 MAY 2024 13:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.13)  16 MAY 2024 01:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,6 +299,14 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count284
+\float@exts=\toks29
+\float@box=\box52
+\@float@everytoks=\toks30
+\@floatcapt=\box53
+)
 \tindent=\skip56
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
@@ -318,39 +326,40 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen168
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count284
-\c@continuedfloat=\count285
+\c@caption@flags=\count285
+\c@continuedfloat=\count286
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 )
-\c@subfigure=\count286
-\c@subtable=\count287
+\c@subfigure=\count287
+\c@subtable=\count288
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count288
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count289
+\l__pdf_internal_box=\box54
 )
 (./project_write_ups.aux)
 \openout1 = `project_write_ups.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -388,17 +397,17 @@ LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count289
+\scratchcounter=\count290
 \scratchdimen=\dimen169
-\scratchbox=\box53
-\nofMPsegments=\count290
-\nofMParguments=\count291
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count292
+\scratchbox=\box55
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count293
 \MPscratchDim=\dimen170
-\MPnumerator=\count293
-\makeMPintoPDFobject=\count294
-\everyMPtoPDFconversion=\toks30
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks32
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -408,7 +417,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 21.
+Package hyperref Info: Link coloring OFF on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -419,11 +428,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count295
+\c@section@level=\count296
 )
-LaTeX Info: Redefining \ref on input line 21.
-LaTeX Info: Redefining \pageref on input line 21.
-LaTeX Info: Redefining \nameref on input line 21.
+LaTeX Info: Redefining \ref on input line 22.
+LaTeX Info: Redefining \pageref on input line 22.
+LaTeX Info: Redefining \nameref on input line 22.
 
 (./project_write_ups.out) (./project_write_ups.out)
 \@outlinefile=\write3
@@ -431,178 +440,247 @@ LaTeX Info: Redefining \nameref on input line 21.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+) [1
 
-LaTeX Warning: Citation `Nemati2014' on page 1 undefined on input line 34.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--35
-
- []
-
-<figures/model_diagram.png, id=5, 222.07968pt x 135.50626pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<figures/model_diagram.png, id=18, 222.07968pt x 135.50626pt>
 File: figures/model_diagram.png Graphic file (type png)
 <use figures/model_diagram.png>
 Package pdftex.def Info: figures/model_diagram.png  used on input line 48.
 (pdftex.def)             Requested size: 142.26378pt x 86.80432pt.
-
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 49.
-
-
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 49.
-
-<figures/free_body_diagram.png, id=7, 137.01187pt x 121.20282pt>
+<figures/free_body_diagram.png, id=22, 137.01187pt x 121.20282pt>
 File: figures/free_body_diagram.png Graphic file (type png)
 <use figures/free_body_diagram.png>
 Package pdftex.def Info: figures/free_body_diagram.png  used on input line 55.
 (pdftex.def)             Requested size: 142.26378pt x 125.8593pt.
-
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 56.
-
-
-LaTeX Warning: Citation `model_diagram' on page 1 undefined on input line 56.
-
 
 Overfull \hbox (2.61107pt too wide) in paragraph at lines 46--59
 [][]  [] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Citation `K2019' on page 1 undefined on input line 62.
-
-
-LaTeX Warning: Citation `Schreier2012' on page 1 undefined on input line 62.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 67--71
 
  []
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./figures/model_diagra
-m.png> <./figures/free_body_diagram.png>] [3] [4]
-<figures/phase_02_measurement1.png, id=47, 1226.4219pt x 616.4631pt>
+[2 <./figures/model_diagram.png> <./figures/free_body_diagram.png>] [3]
+[4] [5]
+<figures/phase_02_measurement1.png, id=63, 1226.4219pt x 616.4631pt>
 File: figures/phase_02_measurement1.png Graphic file (type png)
 <use figures/phase_02_measurement1.png>
 Package pdftex.def Info: figures/phase_02_measurement1.png  used on input line 
-257.
+254.
 (pdftex.def)             Requested size: 284.52756pt x 143.01578pt.
-<figures/phase_02_states1.png, id=48, 1418.6601pt x 697.4055pt>
+<figures/phase_02_states1.png, id=64, 1418.6601pt x 697.4055pt>
 File: figures/phase_02_states1.png Graphic file (type png)
 <use figures/phase_02_states1.png>
-Package pdftex.def Info: figures/phase_02_states1.png  used on input line 264.
+Package pdftex.def Info: figures/phase_02_states1.png  used on input line 261.
 (pdftex.def)             Requested size: 284.52756pt x 139.86172pt.
+ [6 <./figures/phase_02_measurement1.png> <./figures/phase_02_states1.png>] [7]
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5 <./figures/phase_02_measurement1.png>] [6 <./figures/phase_02_states1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 464--465
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 
  []
 
-[7]
-Overfull \hbox (15.13033pt too wide) detected at line 493
+
+Overfull \hbox (50.17041pt too wide) detected at line 432
 []
  []
 
-[8]
-<figures/phase_03_obswithh.png, id=76, 524.6802pt x 351.9549pt>
-File: figures/phase_03_obswithh.png Graphic file (type png)
-<use figures/phase_03_obswithh.png>
-Package pdftex.def Info: figures/phase_03_obswithh.png  used on input line 500.
 
-(pdftex.def)             Requested size: 142.26378pt x 95.4265pt.
-<figures/phase_03_obswithtime.png, id=77, 406.1574pt x 336.7782pt>
-File: figures/phase_03_obswithtime.png Graphic file (type png)
-<use figures/phase_03_obswithtime.png>
-Package pdftex.def Info: figures/phase_03_obswithtime.png  used on input line 5
-07.
-(pdftex.def)             Requested size: 142.26378pt x 117.96149pt.
+LaTeX Warning: Reference `supfig:01c' on page 8 undefined on input line 437.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 498--511
-[][]  [] 
+<figures/analytical_observability.png, id=85, 867.24pt x 433.62pt>
+File: figures/analytical_observability.png Graphic file (type png)
+<use figures/analytical_observability.png>
+Package pdftex.def Info: figures/analytical_observability.png  used on input li
+ne 442.
+(pdftex.def)             Requested size: 284.52756pt x 142.26135pt.
+<figures/observability_with_time.png, id=86, 1084.05pt x 361.35pt>
+File: figures/observability_with_time.png Graphic file (type png)
+<use figures/observability_with_time.png>
+Package pdftex.def Info: figures/observability_with_time.png  used on input lin
+e 449.
+(pdftex.def)             Requested size: 426.79134pt x 142.26578pt.
+<figures/crb_and_cn_with_noisy_sinusoidal_x_and_h1.png, id=87, 1084.05pt x 361.
+35pt>
+File: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h1.png Graphic file (type 
+png)
+<use figures/crb_and_cn_with_noisy_sinusoidal_x_and_h1.png>
+Package pdftex.def Info: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h1.png 
+ used on input line 456.
+(pdftex.def)             Requested size: 426.79134pt x 142.26578pt.
+<figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png, id=88, 1084.05pt x 361.
+35pt>
+File: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png Graphic file (type 
+png)
+<use figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png>
+Package pdftex.def Info: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png 
+ used on input line 463.
+(pdftex.def)             Requested size: 426.79134pt x 142.26578pt.
+[8] [9 <./figures/analytical_observability.png> <./figures/observability_with_t
+ime.png> <./figures/crb_and_cn_with_noisy_sinusoidal_x_and_h1.png> <./figures/c
+rb_and_cn_with_noisy_sinusoidal_x_and_h9.png>]
+<figures/ekf_with_noisy_sinusoidal_x_and_h0.png, id=103, 2168.1pt x 722.7pt>
+File: figures/ekf_with_noisy_sinusoidal_x_and_h0.png Graphic file (type png)
+<use figures/ekf_with_noisy_sinusoidal_x_and_h0.png>
+Package pdftex.def Info: figures/ekf_with_noisy_sinusoidal_x_and_h0.png  used o
+n input line 477.
+(pdftex.def)             Requested size: 426.79134pt x 142.25475pt.
+<figures/ekf_with_noisy_sinusoidal_x_and_h1.png, id=104, 2168.1pt x 722.7pt>
+File: figures/ekf_with_noisy_sinusoidal_x_and_h1.png Graphic file (type png)
+<use figures/ekf_with_noisy_sinusoidal_x_and_h1.png>
+Package pdftex.def Info: figures/ekf_with_noisy_sinusoidal_x_and_h1.png  used o
+n input line 484.
+(pdftex.def)             Requested size: 426.79134pt x 142.25475pt.
+<figures/ekf_with_noisy_sinusoidal_x_and_h11.png, id=105, 2168.1pt x 722.7pt>
+File: figures/ekf_with_noisy_sinusoidal_x_and_h11.png Graphic file (type png)
+<use figures/ekf_with_noisy_sinusoidal_x_and_h11.png>
+Package pdftex.def Info: figures/ekf_with_noisy_sinusoidal_x_and_h11.png  used 
+on input line 491.
+(pdftex.def)             Requested size: 426.79134pt x 142.25475pt.
+ [10 <./figures/ekf_with_noisy_sinusoidal_x_and_h0.png> <./figures/ekf_with_noi
+sy_sinusoidal_x_and_h1.png> <./figures/ekf_with_noisy_sinusoidal_x_and_h11.png>
+]
+<figures/ekf_with_noisy_sinusoidal_x_and_h13.png, id=116, 2168.1pt x 722.7pt>
+File: figures/ekf_with_noisy_sinusoidal_x_and_h13.png Graphic file (type png)
+<use figures/ekf_with_noisy_sinusoidal_x_and_h13.png>
+Package pdftex.def Info: figures/ekf_with_noisy_sinusoidal_x_and_h13.png  used 
+on input line 502.
+(pdftex.def)             Requested size: 426.79134pt x 142.25475pt.
+ [11 <./figures/ekf_with_noisy_sinusoidal_x_and_h13.png>] (./project_write_ups.
+bbl)
+Overfull \hbox (15.13033pt too wide) detected at line 534
+[]
  []
 
-<figures/phase_03_emperical1.png, id=78, 1058.7555pt x 336.7782pt>
-File: figures/phase_03_emperical1.png Graphic file (type png)
-<use figures/phase_03_emperical1.png>
-Package pdftex.def Info: figures/phase_03_emperical1.png  used on input line 51
-5.
-(pdftex.def)             Requested size: 284.52756pt x 90.5048pt.
-<figures/phase_03_emperical2.png, id=79, 1059.4782pt x 349.0641pt>
-File: figures/phase_03_emperical2.png Graphic file (type png)
-<use figures/phase_03_emperical2.png>
-Package pdftex.def Info: figures/phase_03_emperical2.png  used on input line 52
-2.
-(pdftex.def)             Requested size: 284.52756pt x 93.74257pt.
-<figures/phase_03_outputy1.png, id=80, 936.6192pt x 338.2236pt>
-File: figures/phase_03_outputy1.png Graphic file (type png)
-<use figures/phase_03_outputy1.png>
-Package pdftex.def Info: figures/phase_03_outputy1.png  used on input line 533.
+[12] [13] [14]
+Overfull \vbox (33.28157pt too high) has occurred while \output is active []
 
-(pdftex.def)             Requested size: 284.52756pt x 102.74776pt.
-[9 <./figures/phase_03_obswithh.png> <./figures/phase_03_obswithtime.png> <./fi
-gures/phase_03_emperical1.png> <./figures/phase_03_emperical2.png>]
-<figures/phase_03_param1.png, id=92, 1058.0328pt x 349.0641pt>
-File: figures/phase_03_param1.png Graphic file (type png)
-<use figures/phase_03_param1.png>
-Package pdftex.def Info: figures/phase_03_param1.png  used on input line 542.
-(pdftex.def)             Requested size: 284.52756pt x 93.87039pt.
-<figures/phase_03_param2.png, id=93, 1058.7555pt x 349.0641pt>
-File: figures/phase_03_param2.png Graphic file (type png)
-<use figures/phase_03_param2.png>
-Package pdftex.def Info: figures/phase_03_param2.png  used on input line 549.
-(pdftex.def)             Requested size: 284.52756pt x 93.80647pt.
- [10 <./figures/phase_03_outputy1.png> <./figures/phase_03_param1.png> <./figur
-es/phase_03_param2.png>] [11]
-No file project_write_ups.bbl.
-(./project_write_ups.aux)
+
+[15]
+<figures/states_with_noisy_sinusoidal_x_and_h0.png, id=146, 1445.4pt x 361.35pt
+>
+File: figures/states_with_noisy_sinusoidal_x_and_h0.png Graphic file (type png)
+
+<use figures/states_with_noisy_sinusoidal_x_and_h0.png>
+Package pdftex.def Info: figures/states_with_noisy_sinusoidal_x_and_h0.png  use
+d on input line 570.
+(pdftex.def)             Requested size: 426.79134pt x 106.69656pt.
+<figures/crb_and_cn_with_noisy_sinusoidal_x_and_h0.png, id=147, 1084.05pt x 361
+.35pt>
+File: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h0.png Graphic file (type 
+png)
+<use figures/crb_and_cn_with_noisy_sinusoidal_x_and_h0.png>
+Package pdftex.def Info: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h0.png 
+ used on input line 577.
+(pdftex.def)             Requested size: 426.79134pt x 142.26578pt.
+<figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h0.png, id=148, 722.7p
+t x 361.35pt>
+File: figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h0.png Graphic fi
+le (type png)
+<use figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h0.png>
+Package pdftex.def Info: figures/gramian_eigenvalues_with_noisy_sinusoidal_x_an
+d_h0.png  used on input line 584.
+(pdftex.def)             Requested size: 426.79134pt x 213.39867pt.
+<figures/states_with_noisy_sinusoidal_x_and_h9.png, id=149, 1445.4pt x 361.35pt
+>
+File: figures/states_with_noisy_sinusoidal_x_and_h9.png Graphic file (type png)
+
+<use figures/states_with_noisy_sinusoidal_x_and_h9.png>
+Package pdftex.def Info: figures/states_with_noisy_sinusoidal_x_and_h9.png  use
+d on input line 595.
+(pdftex.def)             Requested size: 426.79134pt x 106.69656pt.
+File: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png Graphic file (type 
+png)
+<use figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png>
+Package pdftex.def Info: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png 
+ used on input line 602.
+(pdftex.def)             Requested size: 426.79134pt x 142.26578pt.
+<figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h9.png, id=150, 722.7p
+t x 361.35pt>
+File: figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h9.png Graphic fi
+le (type png)
+<use figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h9.png>
+Package pdftex.def Info: figures/gramian_eigenvalues_with_noisy_sinusoidal_x_an
+d_h9.png  used on input line 609.
+(pdftex.def)             Requested size: 426.79134pt x 213.39867pt.
+ [16 <./figures/states_with_noisy_sinusoidal_x_and_h0.png> <./figures/crb_and_c
+n_with_noisy_sinusoidal_x_and_h0.png> <./figures/gramian_eigenvalues_with_noisy
+_sinusoidal_x_and_h0.png>]
+<figures/states_with_noisy_sinusoidal_x_and_h13.png, id=160, 1445.4pt x 361.35p
+t>
+File: figures/states_with_noisy_sinusoidal_x_and_h13.png Graphic file (type png
+)
+<use figures/states_with_noisy_sinusoidal_x_and_h13.png>
+Package pdftex.def Info: figures/states_with_noisy_sinusoidal_x_and_h13.png  us
+ed on input line 621.
+(pdftex.def)             Requested size: 426.79134pt x 106.69656pt.
+<figures/crb_and_cn_with_noisy_sinusoidal_x_and_h13.png, id=161, 1084.05pt x 36
+1.35pt>
+File: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h13.png Graphic file (type
+ png)
+<use figures/crb_and_cn_with_noisy_sinusoidal_x_and_h13.png>
+Package pdftex.def Info: figures/crb_and_cn_with_noisy_sinusoidal_x_and_h13.png
+  used on input line 628.
+(pdftex.def)             Requested size: 426.79134pt x 142.26578pt.
+<figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h13.png, id=162, 722.7
+pt x 361.35pt>
+File: figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h13.png Graphic f
+ile (type png)
+<use figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h13.png>
+Package pdftex.def Info: figures/gramian_eigenvalues_with_noisy_sinusoidal_x_an
+d_h13.png  used on input line 635.
+(pdftex.def)             Requested size: 426.79134pt x 213.39867pt.
+ [17 <./figures/states_with_noisy_sinusoidal_x_and_h9.png> <./figures/gramian_e
+igenvalues_with_noisy_sinusoidal_x_and_h9.png>]
+[18 <./figures/states_with_noisy_sinusoidal_x_and_h13.png> <./figures/crb_and_c
+n_with_noisy_sinusoidal_x_and_h13.png> <./figures/gramian_eigenvalues_with_nois
+y_sinusoidal_x_and_h13.png>] (./project_write_ups.aux)
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `project_write_ups.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11784 strings out of 480247
- 186923 string characters out of 5896151
- 516314 words of memory out of 5000000
- 29546 multiletter control sequences out of 15000+600000
- 478630 words of font info for 64 fonts, out of 8000000 for 9000
+ 11954 strings out of 480247
+ 192961 string characters out of 5896151
+ 569568 words of memory out of 5000000
+ 29683 multiletter control sequences out of 15000+600000
+ 478669 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 67i,18n,77p,463b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on project_write_ups.pdf (11 pages, 945138 bytes).
+ 67i,18n,77p,1058b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on project_write_ups.pdf (18 pages, 9488784 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

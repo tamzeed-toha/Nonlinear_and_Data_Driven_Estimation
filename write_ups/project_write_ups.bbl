@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{Brunton_2016}
+Steven~L. Brunton, Steven~L. Brunton, Joshua~L. Proctor, Joshua~L. Proctor,
+  J.~Nathan Kutz, and J.~Nathan Kutz.
+\newblock Discovering governing equations from data by sparse identification of
+  nonlinear dynamical systems.
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America}, 2016.
+
+\bibitem{K2019}
+Rahul~Vigneswaran K and Soman KP.
+\newblock {An Insight into the Dynamics and State Space Modelling of a 3-D
+  Quadrotor}.
+\newblock jan 2019.
+
+\bibitem{Kong_2019}
+He~Kong, He~Kong, Salah Sukkarieh, and Salah Sukkarieh.
+\newblock An internal model approach to estimation of systems with arbitrary
+  unknown inputs.
+\newblock {\em Automatica}, 2019.
+
+\bibitem{model_diagram}
+Cookie Robotics.
+\newblock {2D Quadrotor}.
+
+\bibitem{Schreier2012}
+Matthias Schreier.
+\newblock {Modeling and adaptive control of a quadrotor}.
+\newblock In {\em 2012 IEEE International Conference on Mechatronics and
+  Automation}, pages 383--390. IEEE, aug 2012.
+
+\end{thebibliography}

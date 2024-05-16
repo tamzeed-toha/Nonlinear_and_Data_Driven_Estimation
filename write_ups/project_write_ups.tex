@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{float}
 \newlength\tindent
 \setlength{\parindent}{0pt}
 \setlength{\tindent}{\parindent}
@@ -12,8 +13,8 @@
 
 \usepackage{subcaption}
 
-\title{Phase 03}
-\author{Tamzeed Elahi}
+\title{Observability and State Estimation of a 2D Quadrotor System with Unknown Control Matrix \\ \large Project for Nonlinear and Data Driven Estimation}
+\author{Tamzeed Elahi Toha}
 \date{\today}
 
 
@@ -24,20 +25,19 @@
 
 Code for this project can be found \href{https://github.com/tamzeed-toha/Nonlinear_and_Data_Driven_Estimation/blob/main/project/phase_03.ipynb}{\textcolor{blue}{here}}.
 
-\section*{Project Description}
-The problem I am interested for the class project is a system identification problem for a 2D quadrotor system. In the context of this course, the observability of this system will be evaluated; especially for estimating the input matrix which is unknown. 
-\begin{align*}
-    \dot{x} &= Ax + Bu + w \\
-    y &= Cx + v
-\end{align*} 
-Here, the B matrix is unknown. \\\\
-Ultimately, we would be able to estimate the B matrix using the observability matrix and consider the feasibility of a quadrotor system with additional controls (sliding/tilting) like \cite{Nemati2014}. 
-
 \section*{Abstract}
-
+In this project, I have analyzed the observability of a 2D quadrotor system with unknown control matrix. The complexity of the problem is mitigated by considering the unknown parameter as constants. The nonlinearity of the system makes the observability of system time-variant. To test it out, I have simulated the system's response with different sensory combinations and trajectories and measured their observability. Finally, the states of the system, along with the unknown parameters, are estimated using an Extended Kalman Filter. This project aims to achieve two objectives: a) estimating the unknown governing equations that relate inputs to the states; b) enhancing state estimations with the help of observability. The results found here will help in designing more observable state trajectories and in examining different behavioral motifs for biological systems. Where the translation of decisions to physical actions is often poorly understood.
 
 
 \section*{Introduction}
+Observability is an indication of the state quantities that can be "observed" from measurements. In the case of a linear system, it depends on both system and measurement matrices and is independent of time. But in the case of a nonlinear system, observability can be time dependent. That gives rise to an opportunity to design a more robust state estimator that takes advantage of the observability or plan trajectories that are more observable. In natural world, this nonlinearity leads to certain behavioral motifs which they use to improve state estimation. 
+
+In this paper, I am going to investigate the behavior of a 2D quadrotor system with unknown control matrix. The necessity of knowing the control matrix beforehand to estimate state is often too restrictive for real-world applications. To combat that, researchers have proposed different strategies to estimate the unknown control matrix. In this paper \cite{Kong_2019}
+, authors have proposed MRAC method with an adaptive law that converges to true control matrix, considering the system is time invariant. For the sake of relevence, I have used Extended Kalman Filter to estimate the unknown parameters of the control matrix. Figuring out the true dynamics of a system with more complicated control matrix is a much harder problem. I believe \cite{Brunton_2016} and other model discovery algorithms can be used to discover the true dynamics of the system. Although pySINDy is a powerful tool, its capability to estimate system dynamics even with a good set of prior knowledge is still inadequate.
+
+To measure observability of the system, a few tools are used in this paper. First it is estimated analytically by calculating the rank of the observability matrix. As observability varies with state values, it is then measured with simulated data with a set of different trajectories. Lastly, the Emperical Observability Method with a small window size ($s=20$ timesteps) is used to estimate Cramer Rao Lower Bound of individual states. The results are compared across different measurement matrices and trajectories.
+
+In this course, we have discussed two different estimators: Extended Kalman Filter and Unscented Kalman Filter. UKF being the more robust one, works by approximating the probability distribution of the states, whereas EKF works by linearizing the system dynamics by taking the first order Taylor expansion. Although UKF is better for nonlinear systems, it has proven to be more complicated to be implemented. For that reason, here I have used EKF for state estimation.
 
 
 
@@ -47,28 +47,26 @@ Ultimately, we would be able to estimate the B matrix using the observability ma
         \centering
         \includegraphics[width=5cm]{figures/model_diagram.png}
         \caption{Quadrotor system \cite{model_diagram}}
-        \label{fig:01}
+        \label{fig:1a}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=5cm]{figures/free_body_diagram.png}
         \caption{Free body diagram \cite{model_diagram}}
-        \label{fig:02}
+        \label{fig:1b}
     \end{subfigure}
 \end{figure}
 % \includegraphics[width=5cm]{model_diagram.png}
 
 The state space model of a quadrotor system can be found in various literature\cite{K2019}\cite{Schreier2012}. For the class project, I will be using a simplified 2D model (only the y and z coordinates). The dynamic equation of the system can be estimated using Newton's second law of motion.
 \begin{align*}
-    \ddot{y} &= -\frac{1}{m}u_1(t) \sin{\phi} \\
-    \ddot{z} &= -g + \frac{1}{m}u_1(t) \cos{\phi} \\ 
-    \ddot{\phi} &= \frac{1}{I_{xx}}u_2(t) \\
+    \ddot{y} &= -\frac{1}{m}u_1(t) \sin{\theta} \\
+    \ddot{z} &= -g + \frac{1}{m}u_1(t) \cos{\theta} \\ 
+    \ddot{\theta} &= \frac{1}{I_{xx}}u_2(t) \\
 \end{align*}
-I assumed only two inputs (force and torque) are present in the system. Their relation with the states are nonlinear though it can be linearized with $\phi \approx 0$. It would be more interesting if the inputs are not forces and torques but rotor speeds. \\\\
+I assumed only two inputs (force and torque) are present in the system. Although, their relation with the states are primarily nonlinear, it can be linearized with approximation $\phi \approx 0$. In future work, I will consider the rotor speeds as inputs to the system where the control matrix is more difficult to estimate but the input signals are much more reliable. \\\\
 States are: $x = [\dot{\theta}, \theta, \dot{x}, x, \dot{z}, z]^T$ \\
-For now the output matrix-$C$ is considered to be an identity matrix. So, the system assumed to have a GPS and IMU sensors for full state estimation.
-
 inputs are:
 \begin{align*}
     u_1(t) &= F \\
@@ -95,7 +93,6 @@ matrices in continuous form:
 \end{align*}
 
 
-\pagebreak
 \section*{Results:}
 
 \subsection*{Linear case:}
@@ -256,14 +253,14 @@ The measurement plot is given below:
     \centering
     \includegraphics[width=10cm]{figures/phase_02_measurement1.png}
     \caption{Measurement plot}
-    \label{fig:03}
+    \label{fig:02}
 \end{figure}
 The estimator was able to estimate the states and the unknown parameters of the input matrix. The plot of the estimated states and the true states are given below:
 \begin{figure}[h!]
     \centering
     \includegraphics[width=10cm]{figures/phase_02_states1.png}
     \caption{State estimation}
-    \label{fig:04}
+    \label{fig:03}
 \end{figure}
 
 \subsection*{Nonlinear case:}
@@ -357,52 +354,6 @@ Dynamic equations:
         0 \\
         % 0 \\
     \end{bmatrix} \colorbox{green}{$u_2$} \\    
-    % \dot{\vec{x}} &= \begin{bmatrix}
-    %     \colorbox{pink}{$\beta_1$} \colorbox{lime}{$u_2$} \\
-    %     \colorbox{yellow}{$\dot{\theta}$} \\
-    %     \colorbox{pink}{$\beta_2$} \colorbox{lime}{$u_1$} \sin{\colorbox{yellow}{$\theta$}} \\ 
-    %     \colorbox{yellow}{$\dot{x}$} \\
-    %     -\colorbox{cyan}{g}+\colorbox{pink}{$\beta_3$} \colorbox{lime}{$u_1$} \cos{\colorbox{yellow}{$\theta$}} \\
-    %     \colorbox{yellow}{$\dot{z}$} \\
-    %     \hline
-    %     0 \\
-    %     0 \\
-    %     0 \\
-    % \end{bmatrix} \\
-    % &= \begin{bmatrix}
-    %         0 \\
-    %         \colorbox{yellow}{$\dot{\theta}$} \\
-    %         0 \\
-    %         \colorbox{yellow}{$\dot{x}$} \\
-    %         -\colorbox{cyan}{g} \\
-    %         \colorbox{yellow}{$\dot{z}$} \\
-    %         \hline
-    %         0 \\
-    %         0 \\
-    %         % 0 \\
-    %     \end{bmatrix} +  \begin{bmatrix}
-    %         0 \\
-    %         0 \\
-    %         \colorbox{pink}{$\beta_2$} \sin{\colorbox{yellow}{$\theta$}} \\
-    %         0 \\
-    %         \colorbox{pink}{$\beta_3$} \cos{\colorbox{yellow}{$\theta$}} \\
-    %         0 \\
-    %         \hline
-    %         0 \\
-    %         0 \\
-    %         % 0 \\
-    %     \end{bmatrix} \colorbox{lime}{$u_1$} +  \begin{bmatrix}
-    %         \colorbox{pink}{$\beta_1$} \\
-    %         0 \\
-    %         0 \\
-    %         0 \\
-    %         0 \\
-    %         0 \\    
-    %         \hline        
-    %         0 \\
-    %         0 \\
-    %         % 0 \\
-    %     \end{bmatrix} \colorbox{lime}{$u_2$} \\
     &= \begin{bmatrix}
         0 \\
         \colorbox{yellow}{$\dot{\theta}$} \\
@@ -474,11 +425,98 @@ Measurement matrix: I have played around with different measurement matrices and
     \left[\begin{matrix}\theta + x\\x + z\end{matrix}\right],
     \left[\begin{matrix}\theta + x\\x + z\\\theta + z\end{matrix}\right],
     \left[\begin{matrix}\theta x\\\frac{z}{x}\\\theta + z\end{matrix}\right],
-    \left[\begin{matrix}\theta x\\\frac{z}{x}\end{matrix}\right]
+    \left[\begin{matrix}\theta x\\\frac{z}{x}\end{matrix}\right],
+    \left[\begin{matrix}\dot{\theta}\\\dot{x}\\\dot{z}\end{matrix}\right],
+    \left[\begin{matrix}\dot{\theta}\\\theta\\\dot{x}\\\dot{z}\end{matrix}\right],
+    \left[\begin{matrix}\dot{\theta}\\\log{\left(\theta \right)}\\\dot{x}\\\dot{z}\end{matrix}\right]
 \end{align*}
 
 \subsection*{Observability analysis:}
-First, we will estimate the observability of the system analytically for different measurement system. We have to estimate G matrix which is the collection of all unique lie-derivatives of the system. 
+First, the observability of this nonlinear system is estimated analytically.The process involves taking the Lie derivative of the system dynamics with respect to the states and generating the G matrix. Observability matrix can be found by taking the jacobian of the G matrix. The rank of the observability matrix if greater than the number of states, makes the system observable. Analytically we see the systems with direct measurements of each degree of freedom are full rank \ref{fig:04a}. To check if the observability is time variant, I have plotted the observability of different measurements and trajectories with time \ref{fig:04b}. Unfortunately, it is found to be not time variant. But we move on to the emperical observability analysis.
+
+Emperical observability measures relative excitation of states with respect to the inputs. In this case, I found the Cramer Rao Lower Bound of states are quite satisfactory though the condition number of the system is unnaturally high \ref{fig:04c}\ref{fig:04d}. One of the state might be unobservable in these scenarios and that might affect the condition number. The noise in Cramer Rao Bound is related to the perturbation of initial states. Initially I assumed the poor condition number value results from insufficient excitation of the states. But, upon further investigation, I found the condition number is high because the eigenvalue of one of the states is very high compared to other. This is further illustrated with figure \ref{supfig:01c}.
+
+\begin{figure}[H]
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=10cm]{figures/analytical_observability.png}
+        \caption{Analytical observability of different measurements matrices}
+        \label{fig:04a}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/observability_with_time.png}
+        \caption{Observability of the system with time and measurement matrices}
+        \label{fig:04b}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/crb_and_cn_with_noisy_sinusoidal_x_and_h1.png}
+        \caption{Cramer Rao Lower Bound and Condition Number of the system with h1 measurement matrix}
+        \label{fig:04c}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png}
+        \caption{Cramer Rao Lower Bound and Condition Number of the system with h9 measurement matrix}
+        \label{fig:04d}
+    \end{subfigure}
+\end{figure}
+Results from other measurement matrices along with the state values can be found in the supplementary material.
+
+
+\subsection*{State estimation:}
+Extended Kalman Filter is used to estimate the states of the system. The state estimation is done with different measurement matrices and trajectories. The results are given below for a few measurement matrices. 
+
+\begin{figure}[H]
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/ekf_with_noisy_sinusoidal_x_and_h0.png}
+        \caption{State estimation with h0 measurement matrix}
+        \label{fig:05a}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/ekf_with_noisy_sinusoidal_x_and_h1.png}
+        \caption{State estimation with h1 measurement matrix}
+        \label{fig:05b}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/ekf_with_noisy_sinusoidal_x_and_h11.png}
+        \caption{State estimation with h11 measurement matrix}
+        \label{fig:05c}
+    \end{subfigure}
+\end{figure}
+
+Although the estimated parameter values are quite close to the true values, not all the states are estimated accurately. Estimation gets better with more direct measurements. But for some reason, the if the parameters are directly measured, the estimation gets worse. Further investigation is needed to understand the behavior of the system. To illustrate my point, here is the plot of the estimated states with a measurement matrix that directly measures all the real states. \ref{fig:05d}
+
+\begin{figure}[H]
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/ekf_with_noisy_sinusoidal_x_and_h13.png}
+        \caption{State estimation with h13 measurement matrix}
+        \label{fig:05d}
+    \end{subfigure}
+\end{figure}
+
+
+\section*{Conclusion}
+Observability is one of the most important aspects of a system. It is important to know if the measurements are enough to estimate the states of the system or not. In this paper, I have used different tools to estimate the observability of the system. The results although not conclusive yet, show the importance of observability analysis for state estimation. The parameter estimation is close to the true values but the state estimation is not as accurate all the time. Taking a look into their discrete dynamics might give a better understanding of the system.
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{phase0}
+
+
+\section*{Suplementary Material}
+\subsection*{G matrix and O matrix:}
+
 \begin{align*}
     G &= \left[\begin{matrix}0\\- g\\\theta\\x\\\beta_{3}\\\dot{\theta}\\\beta_{1}\\\beta_{2}\\z\\\dot{x}\\\dot{z}\end{matrix}\right], 
     \left[\begin{matrix}0\\- g\\\theta\\x\\\beta_{3}\\\dot{\theta}\\\beta_{1}\\\beta_{2}\\z\\\dot{x}\\\dot{z}\end{matrix}\right], 
@@ -489,84 +527,119 @@ First, we will estimate the observability of the system analytically for differe
     \left[\begin{matrix}0\\- g\\\beta_{2} + \beta_{3}\\\beta_{2}\\\theta + x\\\dot{\theta} + \dot{x}\\\dot{x} + \dot{z}\\\beta_{1}\\x + z\end{matrix}\right],
     \left[\begin{matrix}0\\- g\\\dot{\theta} + \dot{z}\\\beta_{3}\\\theta + x\\\beta_{1}\\x + z\\\beta_{2}\\\beta_{2} + \beta_{3}\\\dot{\theta} + \dot{x}\\\dot{x} + \dot{z}\\\theta + z\end{matrix}\right],
     \left[\begin{matrix}0\\- g\\\dot{\theta} x + \dot{x} \theta\\\dot{\theta} + \dot{z}\\\beta_{3}\\2 \dot{\theta} \dot{x}\\- \frac{\dot{x} z}{x^{2}} + \frac{\dot{z}}{x}\\\theta x\\\frac{z}{x}\\- \frac{\beta_{2} z}{x^{2}} + \frac{\beta_{3}}{x}\\\beta_{1}\\- \frac{\dot{x} \dot{z}}{x^{2}} + \dot{x} \left(\frac{2 \dot{x} z}{x^{3}} - \frac{\dot{z}}{x^{2}}\right) - \frac{g}{x}\\\beta_{1} x\\\theta + z\\\beta_{2} \theta\end{matrix}\right],
-    \left[\begin{matrix}0\\- \frac{\dot{x} \dot{z}}{x^{2}} + \dot{x} \left(\frac{2 \dot{x} z}{x^{3}} - \frac{\dot{z}}{x^{2}}\right) - \frac{g}{x}\\\dot{\theta} x + \dot{x} \theta\\\beta_{1} x\\2 \dot{\theta} \dot{x}\\\beta_{2} \theta\\- \frac{\dot{x} z}{x^{2}} + \frac{\dot{z}}{x}\\\theta x\\\frac{z}{x}\\- \frac{\beta_{2} z}{x^{2}} + \frac{\beta_{3}}{x}\end{matrix}\right]
+    \left[\begin{matrix}0\\- \frac{\dot{x} \dot{z}}{x^{2}} + \dot{x} \left(\frac{2 \dot{x} z}{x^{3}} - \frac{\dot{z}}{x^{2}}\right) - \frac{g}{x}\\\dot{\theta} x + \dot{x} \theta\\\beta_{1} x\\2 \dot{\theta} \dot{x}\\\beta_{2} \theta\\- \frac{\dot{x} z}{x^{2}} + \frac{\dot{z}}{x}\\\theta x\\\frac{z}{x}\\- \frac{\beta_{2} z}{x^{2}} + \frac{\beta_{3}}{x}\end{matrix}\right] \\
+    &= \left[\begin{matrix}0\\\dot{z}\\- g\\\beta_{2}\\\beta_{1}\\\dot{x}\\\dot{\theta}\end{matrix}\right], 
+    \left[\begin{matrix}0\\\dot{z}\\- g\\\beta_{2}\\\beta_{1}\\\dot{x}\\\dot{\theta}\\\theta\end{matrix}\right],
+    \left[\begin{matrix}0\\\dot{z}\\\frac{\dot{\theta}}{\theta}\\\frac{\beta_{1}}{\theta}\\\dot{\theta}\\\log{\left(\theta \right)}\\- g\\\beta_{2}\\- \frac{\dot{\theta}^{2}}{\theta^{2}}\\\beta_{1}\\\dot{x}\end{matrix}\right]
 \end{align*}
-Taking the jacobian on the G matrix, we can estimate the observability matrix of the system. The rank of the observability matrix if it is greater than the number of states, makes the system observable.
-I have both analytically and numerically estimated the observability of the system for different measurements, trajectories and state values. They dont seem to be time variant. One interesting observation is that the rank values estimated by the two methods are not the same for all cases (Further investigation is needed).
 
-\begin{figure}[h!]
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=5cm]{figures/phase_03_obswithh.png}
-        \caption{Observability of different measurements}
-        \label{fig:05}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=5cm]{figures/phase_03_obswithtime.png}
-        \caption{Observability of different measurements with time}
-        \label{fig:06}
-    \end{subfigure}
-\end{figure}
-Another approach to estimate the observability of the system is to use the emperical observability method. For $h_0$, which should be the most observable state, the E-ISO results are given below:
-\begin{figure}[h!]
+\begin{align*}
+    O &= 
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\end{matrix}\right], 
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\end{matrix}\right], 
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\end{matrix}\right], \\
+    &=
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & \beta_{1} z & 0 & \beta_{1} x & x z & 0\\x z & \dot{x} z + \dot{z} x & \theta z & \dot{\theta} z + \dot{z} \theta & \theta x & \dot{\theta} x + \dot{x} \theta & 0 & 0\\2 \dot{x} z + 2 \dot{z} x & 2 \dot{x} \dot{z} - g x & 2 \dot{\theta} z + 2 \dot{z} \theta & 2 \dot{\theta} \dot{z} - \theta g & 2 \dot{\theta} x + 2 \dot{x} \theta & 2 \dot{\theta} \dot{x} & 0 & 0\\0 & x z & 0 & \theta z & 0 & \theta x & 0 & 0\\0 & \beta_{2} x + \beta_{2} z & 0 & \beta_{2} \theta & 0 & \beta_{2} \theta & 0 & \theta x + \theta z\end{matrix}\right], \\
+    &= 
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & z & 0 & x & 0 & 0\\0 & 0 & 2 \dot{z} & - g & 2 \dot{x} & 0 & 0 & 0\\0 & 0 & z & \dot{z} & x & \dot{x} & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & \beta_{2} & 0 & \beta_{2} & 0 & x + z\\0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\end{matrix}\right],
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\0 & 0 & 1 & 0 & 1 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 2\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\end{matrix}\right], \\
+    &=
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\0 & 0 & 1 & 0 & 1 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 2\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\1 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\0 & 1 & 0 & 1 & 0 & 0 & 0 & 0\end{matrix}\right],
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\0 & 0 & 1 & 0 & 1 & 0 & 0 & 0\\1 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\0 & 1 & 0 & 1 & 0 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 2\\0 & 1 & 0 & 0 & 0 & 1 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\end{matrix}\right]
+\end{align*}
+
+\begin{align*}
+    O &=
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & \frac{4 \dot{x} z}{x^{3}} - \frac{2 \dot{z}}{x^{2}} & \frac{2 \dot{x} \dot{z}}{x^{3}} + \dot{x} \left(- \frac{6 \dot{x} z}{x^{4}} + \frac{2 \dot{z}}{x^{3}}\right) + \frac{g}{x^{2}} & - \frac{2 \dot{x}}{x^{2}} & \frac{2 \dot{x}^{2}}{x^{3}} & 0 & 0\\0 & \beta_{2} & 0 & 0 & 0 & 0 & 0 & \theta\\0 & 0 & 0 & - \frac{z}{x^{2}} & 0 & \frac{1}{x} & 0 & 0\\1 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\0 & 0 & 0 & - \frac{\beta_{2}}{x^{2}} + \frac{2 \beta_{2} z}{x^{3}} & 0 & - \frac{\beta_{2}}{x^{2}} & 0 & \frac{1}{x} - \frac{z}{x^{2}}\\0 & 0 & - \frac{z}{x^{2}} & \frac{2 \dot{x} z}{x^{3}} - \frac{\dot{z}}{x^{2}} & \frac{1}{x} & - \frac{\dot{x}}{x^{2}} & 0 & 0\\0 & 0 & 0 & \beta_{1} & 0 & 0 & x & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 1 & 0 & 0 & 0 & 1 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\x & \dot{x} & \theta & \dot{\theta} & 0 & 0 & 0 & 0\\0 & x & 0 & \theta & 0 & 0 & 0 & 0\\2 \dot{x} & 0 & 2 \dot{\theta} & 0 & 0 & 0 & 0 & 0\end{matrix}\right], \\
+    &=
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & - \frac{\beta_{2}}{x^{2}} + \frac{2 \beta_{2} z}{x^{3}} & 0 & - \frac{\beta_{2}}{x^{2}} & 0 & \frac{1}{x} - \frac{z}{x^{2}}\\0 & 0 & - \frac{z}{x^{2}} & \frac{2 \dot{x} z}{x^{3}} - \frac{\dot{z}}{x^{2}} & \frac{1}{x} & - \frac{\dot{x}}{x^{2}} & 0 & 0\\0 & 0 & 0 & \beta_{1} & 0 & 0 & x & 0\\0 & 0 & \frac{4 \dot{x} z}{x^{3}} - \frac{2 \dot{z}}{x^{2}} & \frac{2 \dot{x} \dot{z}}{x^{3}} + \dot{x} \left(- \frac{6 \dot{x} z}{x^{4}} + \frac{2 \dot{z}}{x^{3}}\right) + \frac{g}{x^{2}} & - \frac{2 \dot{x}}{x^{2}} & \frac{2 \dot{x}^{2}}{x^{3}} & 0 & 0\\0 & \beta_{2} & 0 & 0 & 0 & 0 & 0 & \theta\\x & \dot{x} & \theta & \dot{\theta} & 0 & 0 & 0 & 0\\0 & x & 0 & \theta & 0 & 0 & 0 & 0\\0 & 0 & 0 & - \frac{z}{x^{2}} & 0 & \frac{1}{x} & 0 & 0\\2 \dot{x} & 0 & 2 \dot{\theta} & 0 & 0 & 0 & 0 & 0\end{matrix}\right], \\
+    &=
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\end{matrix}\right], 
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\end{matrix}\right], \\
+    &=
+    \left[\begin{matrix}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\\frac{1}{\theta} & - \frac{\dot{\theta}}{\theta^{2}} & 0 & 0 & 0 & 0 & 0 & 0\\0 & - \frac{\beta_{1}}{\theta^{2}} & 0 & 0 & 0 & 0 & \frac{1}{\theta} & 0\\1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & \frac{1}{\theta} & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\- \frac{2 \dot{\theta}}{\theta^{2}} & \frac{2 \dot{\theta}^{2}}{\theta^{3}} & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\end{matrix}\right]
+\end{align*}
+
+
+\subsection*{Observability analysis:h0}
+here, the measurement matrix is equal to the state matrix.
+\begin{figure}[H]
     \centering
-    \includegraphics[width=10cm]{figures/phase_03_emperical1.png}
-    \caption{Emperical observability of h0}
-    \label{fig:07}
-\end{figure}
-For $h_1$, which is the more realistic measurement matrix, the E-ISO results are given below:
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=10cm]{figures/phase_03_emperical2.png}
-    \caption{Emperical observability of h1}
-    \label{fig:08}
-\end{figure}
-The observability analysis of the model is not yet perfect. The observability values dont oscillate with time. And the Cramer Rao lower bound is also too high in most cases. 
-
-
-\subsection*{State estimation:}
-As my system is non-linear, I am using extended Kalman filter for state estimation. For the same sinusoidal trajectory, output y is:
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=10cm]{figures/phase_03_outputy1.png}
-    \caption{state measurements}
-    \label{fig:09}
-\end{figure}
-For this output (y) and different measurement matrices, the state estimation of unknown parameters of the input matrix are given below:
-
-\begin{figure}[h!]
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=10cm]{figures/phase_03_param1.png}
-        \caption{State estimation with h0}
-        \label{fig:10}
+        \includegraphics[width=15cm]{figures/states_with_noisy_sinusoidal_x_and_h0.png}
+        \caption{State values with h0 measurement matrix}
+        \label{supfig:01a}
     \end{subfigure}
     \\
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=10cm]{figures/phase_03_param2.png}
-        \caption{State estimation with h1}
-        \label{fig:11}
+        \includegraphics[width=15cm]{figures/crb_and_cn_with_noisy_sinusoidal_x_and_h0.png}
+        \caption{Cramer Rao Lower Bound and Condition Number of the system with h0 measurement matrix}
+        \label{supfig:01b}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h0.png}
+        \caption{Eigenvalues of the Gramian matrix with time}
+        \label{supfig:01c}
     \end{subfigure}
 \end{figure}
 
-More investigation can be found in the associated code.
+\subsection*{Observability analysis:h9}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/states_with_noisy_sinusoidal_x_and_h9.png}
+        \caption{State values with h9 measurement matrix}
+        \label{supfig:09a}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/crb_and_cn_with_noisy_sinusoidal_x_and_h9.png}
+        \caption{Cramer Rao Lower Bound and Condition Number of the system with h9 measurement matrix}
+        \label{supfig:09b}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h9.png}
+        \caption{Eigenvalues of the Gramian matrix with time}
+        \label{supfig:09c}
+    \end{subfigure}
+\end{figure}
 
-\pagebreak
-\section*{Conclusion}
 
-\pagebreak
-\bibliographystyle{plain}
-\bibliography{phase0}
+\subsection*{Observability analysis:h13}
+\begin{align*}
+    h &= \left[\begin{matrix}\dot{\theta}\\\theta\\\dot{x}\\\dot{z}\\x\\z\end{matrix}\right]
+\end{align*}
 
-
-
-
-
-
-
-
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/states_with_noisy_sinusoidal_x_and_h13.png}
+        \caption{State values with h13 measurement matrix}
+        \label{supfig:09a}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/crb_and_cn_with_noisy_sinusoidal_x_and_h13.png}
+        \caption{Cramer Rao Lower Bound and Condition Number of the system with h13 measurement matrix}
+        \label{supfig:09b}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=15cm]{figures/gramian_eigenvalues_with_noisy_sinusoidal_x_and_h13.png}
+        \caption{Eigenvalues of the Gramian matrix with time}
+        \label{supfig:09c}
+    \end{subfigure}
+\end{figure}
 
 \end{document}

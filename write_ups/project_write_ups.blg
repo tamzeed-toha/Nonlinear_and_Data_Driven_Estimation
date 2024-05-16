@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: project_write_ups.aux
+The style file: plain.bst
+Database file #1: phase0.bib
+Warning--empty journal in K2019
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            524 strings with 4840 characters,
+and the built_in function-call counts, 1553 in all, are:
+= -- 145
+> -- 83
+< -- 1
++ -- 34
+- -- 28
+* -- 94
+:= -- 268
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 29
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 60
+empty$ -- 115
+format.name$ -- 28
+if$ -- 320
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 4
+newline$ -- 27
+num.names$ -- 10
+pop$ -- 37
+preamble$ -- 1
+purify$ -- 24
+quote$ -- 0
+skip$ -- 51
+stack$ -- 0
+substring$ -- 58
+swap$ -- 14
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 1
+while$ -- 13
+width$ -- 6
+write$ -- 50
+(There was 1 warning)
